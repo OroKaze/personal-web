@@ -31,6 +31,10 @@ pnpm demo
 
 `pnpm demo` builds the app and starts the production server on port 3000.
 
+Vercel deployment uses Node.js `24.x`, declared in `package.json` under `engines` and `.nvmrc`.
+The Vercel project setting must also be set to Node.js `24.x` under **Settings → Build and Deployment → Node.js Version**; repository files cannot change an existing dashboard-level override by themselves.
+Set `NEXT_PUBLIC_SITE_URL` in Vercel Project Settings to the final production domain; see `.env.example`.
+
 ## Routes
 
 - `/` — recruiter-first homepage
@@ -49,6 +53,6 @@ Project links are intentionally omitted until verified live demo and repository 
 
 ## Design notes
 
-The visual system uses a dark editorial foundation with a restrained lime accent, serif emphasis typography, grid/line details, and one lightweight wireframe 3D object in the hero. All motion has a `prefers-reduced-motion` fallback; the 3D scene is dynamically loaded with a CSS fallback.
+The visual system uses a dark editorial foundation with a restrained electric-blue accent, Geist typography, grid/line details, and one lightweight wireframe 3D object in the hero. All motion has a `prefers-reduced-motion` fallback; the 3D scene is dynamically loaded with a CSS fallback.
 
 The PDF supplied with the project is copied to `public/resume.pdf` so the resume CTA works locally and can be replaced with a final version later.
