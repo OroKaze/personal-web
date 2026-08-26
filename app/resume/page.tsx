@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowDownToLine, ArrowLeft } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollProgress } from "@/components/animations/ScrollProgress";
+import { ScrollProgress, AmbientOrbs, CursorGlow, ScrollToTop } from "@/components/animations/ScrollProgress";
+import { RouteTransition } from "@/components/animations/RouteTransition";
 import { profile, education, experiences, skillGroups } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -15,6 +16,9 @@ export default function ResumePage() {
   return (
     <>
       <ScrollProgress />
+      <CursorGlow />
+      <AmbientOrbs />
+      <RouteTransition />
       <Header />
       <main className="resume-page">
         <div className="container resume-shell">
@@ -27,6 +31,7 @@ export default function ResumePage() {
         </div>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

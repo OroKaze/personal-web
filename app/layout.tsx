@@ -1,25 +1,17 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Manrope, Space_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { siteUrl } from "@/lib/constants";
 import "./globals.css";
 
-const manrope = Manrope({
+const geistSans = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
+const geistMono = Geist_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -60,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${instrumentSerif.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   );

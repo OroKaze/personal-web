@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/constants";
+import { InteractiveCard } from "@/components/animations/InteractiveCard";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className={`project-card project-${project.accent}`}>
+    <InteractiveCard className={`project-card project-${project.accent}`}>
       <Link className="project-visual" href={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
         <span className="project-number">0{index + 1}</span>
         <span className="visual-grid" aria-hidden="true" />
@@ -26,7 +27,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </div>
         </div>
       </div>
-    </article>
+    </InteractiveCard>
   );
 }
 

@@ -1,13 +1,16 @@
 import { Reveal } from "@/components/animations/Reveal";
 import { skillGroups } from "@/lib/constants";
+import { InteractiveCard } from "@/components/animations/InteractiveCard";
 
 type SkillGroupData = (typeof skillGroups)[number];
 
 export function SkillGroup({ group, index }: { group: SkillGroupData; index: number }) {
   return (
-    <Reveal className="skill-group" delay={index * 0.08}>
+    <Reveal className="skill-group-reveal" delay={index * 0.08}>
+      <InteractiveCard className="skill-group">
       <div className="skill-group-heading"><span className="mono-label">0{index + 1}</span><h3>{group.title}</h3></div>
       <div className="skill-tags">{group.items.map((item) => <span key={item}>{item}</span>)}</div>
+      </InteractiveCard>
     </Reveal>
   );
 }

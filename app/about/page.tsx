@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollProgress } from "@/components/animations/ScrollProgress";
+import { ScrollProgress, AmbientOrbs, CursorGlow, ScrollToTop } from "@/components/animations/ScrollProgress";
+import { RouteTransition } from "@/components/animations/RouteTransition";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { AboutSection } from "@/components/about/AboutSection";
 import { SkillsSection } from "@/components/skills/SkillGroup";
@@ -19,6 +20,9 @@ export default function AboutPage() {
     <>
       <SmoothScroll />
       <ScrollProgress />
+      <CursorGlow />
+      <AmbientOrbs />
+      <RouteTransition />
       <Header />
       <main className="projects-page about-page">
         <div className="container">
@@ -34,6 +38,7 @@ export default function AboutPage() {
         <section className="section certification-section"><div className="container"><p className="eyebrow">/ Learning continuously</p><div className="certification-layout"><div><h2>Courses &<br /><em>certifications.</em></h2></div><ul>{certifications.map((certification) => <li key={certification}>{certification}</li>)}</ul></div><p className="education-note">{education.degree} · {education.institution} · {education.period}</p></div></section>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

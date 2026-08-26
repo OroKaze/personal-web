@@ -12,8 +12,11 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link className="brand" href="/" aria-label={`${profile.name} home`} onClick={() => setIsOpen(false)}>
-          <span className="brand-mark">MR</span>
-          <span className="brand-name">Huda Rusardi</span>
+          <span className="brand-name">
+            <span className="brand-name-text">{profile.name}</span>
+            <span className="brand-name-scan" aria-hidden="true">{profile.name}</span>
+          </span>
+          <span className="brand-caret" aria-hidden="true">↗</span>
         </Link>
 
         <nav className={`desktop-nav ${isOpen ? "is-open" : ""}`} aria-label="Primary navigation">

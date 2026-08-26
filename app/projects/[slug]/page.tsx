@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollProgress } from "@/components/animations/ScrollProgress";
+import { ScrollProgress, AmbientOrbs, CursorGlow, ScrollToTop } from "@/components/animations/ScrollProgress";
+import { RouteTransition } from "@/components/animations/RouteTransition";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { allProjectSlugs, projectBySlug } from "@/lib/constants";
 
@@ -27,6 +28,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     <>
       <SmoothScroll />
       <ScrollProgress />
+      <CursorGlow />
+      <AmbientOrbs />
+      <RouteTransition />
       <Header />
       <main className="project-detail-page">
         <div className="container">
@@ -48,6 +52,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

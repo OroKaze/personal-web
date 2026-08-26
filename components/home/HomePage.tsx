@@ -11,7 +11,9 @@ import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { SkillsSection } from "@/components/skills/SkillGroup";
 import { ExperienceSection } from "@/components/experience/Timeline";
 import { ContactSection } from "@/components/contact/ContactSection";
-import { ScrollProgress } from "@/components/animations/ScrollProgress";
+import { AmbientOrbs, CursorGlow, ScrollProgress, ScrollToTop } from "@/components/animations/ScrollProgress";
+import { RouteTransition } from "@/components/animations/RouteTransition";
+import { BackgroundMotion } from "@/components/animations/BackgroundMotion";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { HeroReveal, Reveal } from "@/components/animations/Reveal";
 import { education, personJsonLd, websiteJsonLd, highlights } from "@/lib/constants";
@@ -26,6 +28,10 @@ export function HomePage() {
     <>
       <SmoothScroll />
       <ScrollProgress />
+      <CursorGlow />
+      <AmbientOrbs />
+      <RouteTransition />
+      <BackgroundMotion />
       <Header />
       <main>
         <section className="hero-section" id="top">
@@ -63,6 +69,7 @@ export function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
     </>

@@ -4,7 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
-import { ScrollProgress } from "@/components/animations/ScrollProgress";
+import { ScrollProgress, AmbientOrbs, CursorGlow, ScrollToTop } from "@/components/animations/ScrollProgress";
+import { RouteTransition } from "@/components/animations/RouteTransition";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 
 export const metadata: Metadata = {
@@ -17,6 +18,9 @@ export default function ProjectsPage() {
     <>
       <SmoothScroll />
       <ScrollProgress />
+      <CursorGlow />
+      <AmbientOrbs />
+      <RouteTransition />
       <Header />
       <main className="projects-page">
         <div className="container">
@@ -27,6 +31,7 @@ export default function ProjectsPage() {
         </div>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

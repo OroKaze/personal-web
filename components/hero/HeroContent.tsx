@@ -9,8 +9,8 @@ export function HeroContent() {
     <div className="hero-content">
       <div className="hero-copy">
         <p className="eyebrow hero-eyebrow"><span className="status-dot" /> Available for the right challenge</p>
-        <h1>
-          {titleWords.map((word, index) => <span className={index === titleWords.length - 1 ? "accent-word" : ""} key={word}>{word} </span>)}
+        <h1 className="hero-title">
+          {titleWords.map((word, index) => <span className={index === titleWords.length - 1 ? "accent-word" : ""} key={word}>{word}</span>)}
         </h1>
         <p className="hero-description">{profile.valueProposition}</p>
         <div className="hero-actions">
