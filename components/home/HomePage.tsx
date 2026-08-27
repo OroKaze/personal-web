@@ -13,7 +13,9 @@ import { ExperienceSection } from "@/components/experience/Timeline";
 import { ContactSection } from "@/components/contact/ContactSection";
 import { AmbientOrbs, CursorGlow, ScrollProgress, ScrollToTop } from "@/components/animations/ScrollProgress";
 import { RouteTransition } from "@/components/animations/RouteTransition";
-import { BackgroundMotion } from "@/components/animations/BackgroundMotion";
+import { NativeMotion } from "@/components/animations/NativeMotion";
+import { MotionCursor } from "@/components/animations/MotionCursor";
+import { ScrollScene } from "@/components/animations/ScrollScene";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { HeroReveal, Reveal } from "@/components/animations/Reveal";
 import { education, personJsonLd, websiteJsonLd, highlights } from "@/lib/constants";
@@ -31,11 +33,14 @@ export function HomePage() {
       <CursorGlow />
       <AmbientOrbs />
       <RouteTransition />
-      <BackgroundMotion />
+      <NativeMotion />
+      <MotionCursor />
+      <ScrollScene />
       <Header />
       <main>
         <section className="hero-section" id="top">
           <div className="hero-noise" aria-hidden="true" />
+          <div className="hero-grid-line" aria-hidden="true" />
           <div className="container hero-layout">
             <HeroReveal><HeroContent /></HeroReveal>
             <HeroScene3D />

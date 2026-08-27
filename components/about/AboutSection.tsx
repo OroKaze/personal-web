@@ -22,7 +22,7 @@ export function AboutSection() {
           </Reveal>
           <div className="strength-list">
             {strengths.map((strength, index) => (
-              <Reveal key={strength.index} delay={index * 0.1} className="strength-item">
+              <Reveal key={strength.index} delay={index * 0.1} className="strength-item" data-cursor-label="open">
                 <span className="mono-label">{strength.index}</span>
                 <div><h3>{strength.title}</h3><p>{strength.description}</p></div>
               </Reveal>

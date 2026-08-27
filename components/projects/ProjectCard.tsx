@@ -12,7 +12,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="visual-orb visual-orb-one" aria-hidden="true" />
         <span className="visual-orb visual-orb-two" aria-hidden="true" />
         <span className="visual-code" aria-hidden="true">{`{ build: "better" }`}</span>
-        <span className="project-open"><ArrowUpRight size={22} aria-hidden="true" /></span>
+        <span className="project-open" data-cursor-label="open"><ArrowUpRight size={22} aria-hidden="true" /></span>
       </Link>
       <div className="project-info">
         <div>

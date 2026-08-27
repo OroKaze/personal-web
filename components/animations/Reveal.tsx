@@ -11,9 +11,10 @@ type RevealProps = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  "data-cursor-label"?: string;
 };
 
-export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+export function Reveal({ children, className = "", delay = 0, "data-cursor-label": cursorLabel }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -31,10 +32,10 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
     });
   }, { scope: ref });
 
-  return <div ref={ref} className={className}>{children}</div>;
+  return <div ref={ref} className={className} data-cursor-label={cursorLabel}>{children}</div>;
 }
 
-export function HeroReveal({ children, className = "" }: Omit<RevealProps, "delay">) {
+export function HeroReveal({ children, className = "" }: Omit<RevealProps, "delay" | "data-cursor-label">) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

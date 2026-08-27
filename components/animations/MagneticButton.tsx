@@ -27,17 +27,38 @@ export function MagneticButton({ href, children, variant = "solid", download = f
     if (ref.current) ref.current.style.transform = "translate(0, 0)";
   };
 
+  const className = `magnetic-button magnetic-${variant}`;
+  const content = (
+    <>
+      <span>{children}</span>
+      <span className="button-arrow" aria-hidden="true">↗</span>
+    </>
+  );
+
+  if (download) {
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={className}
+        onMouseMove={handleMove}
+        onMouseLeave={handleLeave}
+        download
+      >
+        {content}
+      </a>
+    );
+  }
+
   return (
     <Link
       ref={ref}
       href={href}
-      className={`magnetic-button magnetic-${variant}`}
+      className={className}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      download={download}
     >
-      <span>{children}</span>
-      <span className="button-arrow" aria-hidden="true">↗</span>
+      {content}
     </Link>
   );
 }
