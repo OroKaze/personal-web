@@ -27,6 +27,9 @@ pnpm typecheck
 pnpm lint
 pnpm build
 pnpm demo
+
+# with a running local production server
+pnpm verify:deployment
 ```
 
 `pnpm demo` builds the app and starts the production server on port 3000.

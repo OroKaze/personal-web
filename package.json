@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "demo": "pnpm build && pnpm start",
+    "verify:deployment": "bash scripts/verify-deployment.sh",
     "typecheck": "tsc --noEmit",
     "lint": "eslint"
   },
