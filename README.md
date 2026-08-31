@@ -34,6 +34,23 @@ pnpm verify:deployment
 
 `pnpm demo` builds the app and starts the production server on port 3000.
 
+## Cloudflare deployment (static export)
+
+This site is a fully static Next.js export (`output: "export"` in `next.config.ts`), so it does **not** need the OpenNext/`@opennextjs/cloudflare` adapter. Deployment uses Cloudflare Workers static assets:
+
+1. Set env var in Cloudflare (or your CI): `NEXT_PUBLIC_SITE_URL=https://<your-domain>` so the sitemap and metadata use the production domain instead of `http://localhost:3000`.
+2. Build command: `pnpm build` (or `npx next build`) — output directory: `out`.
+3. Deploy with `wrangler.jsonc` already in the repo:
+
+```bash
+pnpm build
+npx wrangler deploy
+```
+
+The explicit `assets` block in `wrangler.jsonc` (`directory: ./out`, `html_handling: auto-trailing-slash`, `not_found_handling: 404-page`) prevents wrangler from triggering its Next.js autoconfig/OpenNext migration, which hangs on Next.js 16.
+
+For Cloudflare **Pages** instead of Workers, use framework preset "Next.js (Static HTML Export)": build command `npx next build`, build directory `out`.
+
 Vercel deployment uses Node.js `24.x`, declared in `package.json` under `engines` and `.nvmrc`.
 The Vercel project setting must also be set to Node.js `24.x` under **Settings → Build and Deployment → Node.js Version**; repository files cannot change an existing dashboard-level override by themselves.
 Set `NEXT_PUBLIC_SITE_URL` in Vercel Project Settings to the final production domain; see `.env.example`.
